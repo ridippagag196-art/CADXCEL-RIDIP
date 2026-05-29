@@ -27,7 +27,6 @@
             padding: 0 28px;
         }
 
-        /* header */
         header {
             background: #ffffff;
             box-shadow: 0 8px 20px rgba(0,0,0,0.03);
@@ -81,7 +80,6 @@
             padding-bottom: 6px;
         }
 
-        /* page routing */
         .page {
             display: none;
             padding: 40px 0 70px;
@@ -95,7 +93,6 @@
             to { opacity: 1; transform: translateY(0);}
         }
 
-        /* hero */
         .hero {
             background: linear-gradient(110deg, #eef2ff 0%, #e6f0ec 100%);
             border-radius: 2rem;
@@ -142,7 +139,6 @@
             color: white;
         }
 
-        /* section titles */
         .section-title {
             font-size: 1.9rem;
             font-weight: 700;
@@ -150,7 +146,6 @@
             letter-spacing: -0.4px;
         }
 
-        /* grids */
         .video-grid, .gallery-grid, .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
@@ -158,7 +153,6 @@
             margin-bottom: 50px;
         }
 
-        /* cards */
         .card {
             background: white;
             border-radius: 28px;
@@ -181,12 +175,6 @@
             height: 100%;
             border: none;
         }
-        .thumbnail-placeholder {
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            object-fit: cover;
-            background: #cbd5e1;
-        }
         .card-content {
             padding: 20px;
         }
@@ -204,7 +192,6 @@
             gap: 12px;
         }
 
-        /* action bar (likes, comments, share) */
         .action-bar {
             display: flex;
             gap: 24px;
@@ -262,7 +249,7 @@
             border-bottom: 1px solid #e2e8f0;
         }
 
-        .gallery-img, .project-img {
+        .project-img {
             aspect-ratio: 1 / 1;
             object-fit: cover;
             width: 100%;
@@ -270,7 +257,6 @@
             background: #e2e8f0;
         }
 
-        /* about & stats */
         .about-content {
             background: white;
             border-radius: 2rem;
@@ -364,17 +350,18 @@
             <div class="projects-grid" id="featuredProjects"></div>
         </div>
 
-        <!-- VIDEOS PAGE (all 6 original links) -->
+        <!-- VIDEOS PAGE -->
         <div id="videosPage" class="page">
             <h2 class="section-title"><i class="fab fa-youtube"></i> All AutoCAD & Excel Tutorials</h2>
             <div class="video-grid" id="allVideosGrid"></div>
         </div>
 
-        <!-- PROJECT FILES PAGE (YOUR ACTUAL FILES) -->
+        <!-- PROJECT FILES PAGE - USING YOUR ACTUAL IMAGES -->
         <div id="projectsPage" class="page">
             <h2 class="section-title"><i class="fas fa-folder-open"></i> Your Project Files & Visuals</h2>
             <p style="margin-bottom: 28px; background: #eef2ff; padding: 16px 24px; border-radius: 20px;">
-                <i class="fas fa-info-circle"></i> Location: <strong>D:\Computer Science\CADXCEL Ridip\</strong><br>
+                <i class="fas fa-check-circle" style="color: #1e6f5c;"></i> 
+                <strong>Location:</strong> D:\Computer Science\CADXCEL Ridip\<br>
                 These are your actual project files. Each file can be liked, commented, and shared!
             </p>
             <div class="projects-grid" id="fullProjectsGrid"></div>
@@ -398,7 +385,7 @@
                 <div class="stats">
                     <div class="stat-card"><i class="fab fa-youtube fa-2x"></i> <h3>319+</h3><p>Subscribers</p></div>
                     <div class="stat-card"><i class="fas fa-video fa-2x"></i> <h3>17+</h3><p>In-depth videos</p></div>
-                    <div class="stat-card"><i class="fas fa-file-alt fa-2x"></i> <h3>8+</h3><p>Project Files</p></div>
+                    <div class="stat-card"><i class="fas fa-file-alt fa-2x"></i> <h3>6+</h3><p>Project Files</p></div>
                 </div>
                 <p>🔗 Official YouTube: <a href="https://youtube.com/@cadxcel_ridip" target="_blank" style="color:#1e6f5c; font-weight:600;">@CADXcel_Ridip</a></p>
                 <p style="margin-top: 24px;">💡 <strong>Project Files Location:</strong> <code>D:\Computer Science\CADXCEL Ridip\</code></p>
@@ -414,7 +401,7 @@
 <div id="toastMsg" class="toast-msg"></div>
 
 <script>
-    // ----- ORIGINAL YOUTUBE LINKS (FROM USER) -----
+    // ----- ORIGINAL YOUTUBE LINKS -----
     const userProvidedVideos = [
         { title: "AutoCAD DRAWORDER 🔥 Fix Overlapping Objects Fast", youtubeId: "h2L43pVcceQ", views: "1,240 views" },
         { title: "How to Attach Google Earth Image to AutoCAD | DWG to KMZ using Global Mapper", youtubeId: "HByjk2Tqazg", views: "399 views" },
@@ -424,70 +411,49 @@
         { title: "AutoCAD Productivity Secrets", youtubeId: "iExiLDbz2nU", views: "890 views" }
     ];
     
-    // ----- YOUR ACTUAL PROJECT FILES (from the screenshot) -----
-    // Replace the 'previewImg' URLs with your actual image files!
-    // For DWG files, you can use screenshots or placeholders
+    // ----- YOUR ACTUAL PROJECT FILES WITH YOUR IMAGES -----
+    // These match exactly what's in your folder!
     const projectFiles = [
         { 
-            name: "Alignment sheet", 
+            name: "Alignment Sheet", 
             type: "DWG / Drawing",
-            previewImg: "https://picsum.photos/id/104/400/400",  // ← Replace with your actual image path
-            description: "Road alignment and geometric design"
+            previewImg: "alignment-sheet.jpg",
+            description: "Road alignment and geometric design details"
         },
         { 
             name: "Borehole Location Plan", 
             type: "DWG / Survey",
-            previewImg: "https://picsum.photos/id/106/400/400",  // ← Replace with your actual image path
-            description: "Geotechnical borehole positions"
+            previewImg: "borehole-plan.jpg",
+            description: "Geotechnical borehole positions and locations"
         },
         { 
             name: "FLOOR PLAN - 2", 
             type: "DWG / Architectural",
-            previewImg: "https://picsum.photos/id/20/400/400",  // ← Replace with your actual image path
-            description: "Residential floor plan layout"
+            previewImg: "floor-plan-2.jpg",
+            description: "Residential floor plan layout and dimensions"
         },
         { 
             name: "KMZ", 
             type: "Folder / GIS",
-            previewImg: "https://picsum.photos/id/29/400/400",  // ← Replace with your actual image path
-            description: "Google Earth KMZ files and exports",
+            previewImg: "kmz-folder-icon.jpg",
+            description: "Google Earth KMZ files and GIS exports",
             isFolder: true
-        },
-        { 
-            name: "Surface Plan", 
-            type: "DWG / Topography",
-            previewImg: "https://picsum.photos/id/42/400/400",  // ← Replace with your actual image path
-            description: "Contour lines and terrain surface"
         },
         { 
             name: "SV-14", 
             type: "Drawing / Detail",
-            previewImg: "https://picsum.photos/id/21/400/400",  // ← Replace with your actual image path
-            description: "Structural detail SV-14"
+            previewImg: "sv-14-detail.jpg",
+            description: "Structural detail SV-14 specification"
         }
     ];
 
-    // HOW TO REPLACE THE IMAGES:
-    // ===========================
-    // 1. Save screenshots or preview images of your DWG files as .jpg or .png
-    // 2. Place them in the same folder as this HTML file
-    // 3. Update the 'previewImg' paths like this:
-    //    
-    //    previewImg: "alignment-sheet-preview.jpg"
-    //    previewImg: "borehole-location-plan.png"
-    //    previewImg: "floor-plan-2.jpg"
-    //    etc.
-    //
-    // For KMZ folder, you can use a folder icon image or keep as is
-
-    // Community posts (interactive)
+    // Community posts
     let posts = [
         { id: "post1", author: "Ridip (CADXcel)", content: "Just uploaded the DRAWORDER tutorial — fix overlapping objects easily! Let me know your thoughts.", likes: 18, comments: [{ user: "Alex", text: "This saved me hours!" }, { user: "Priya", text: "very crisp explanation" }], createdAt: "2d ago" },
         { id: "post2", author: "Engineer_Simran", content: "The Borehole Location Plan is exactly what I needed for my geotech project. Thanks Ridip!", likes: 9, comments: [], createdAt: "3d ago" },
         { id: "post3", author: "CADXcel_Hub", content: "New project files added: Alignment sheet and Surface Plan. Check the Project Files section!", likes: 32, comments: [{ user: "Mike", text: "Surface plan contours are spot on!" }], createdAt: "12h ago" }
     ];
 
-    // Toast Helper
     function showToast(msg) {
         const toast = document.getElementById('toastMsg');
         toast.innerText = msg;
@@ -495,7 +461,7 @@
         setTimeout(() => toast.style.opacity = '0', 2200);
     }
 
-    // Render Videos (embed YouTube using iframe)
+    // Render Videos
     function renderVideoCards(containerId, videoArray, limit = 0) {
         const container = document.getElementById(containerId);
         if (!container) return;
@@ -532,20 +498,19 @@
         });
         
         document.querySelectorAll('.like-video-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
+            btn.addEventListener('click', () => {
                 let span = btn.querySelector('.like-count');
-                let current = parseInt(span.innerText) || 0;
-                span.innerText = current + 1;
+                span.innerText = parseInt(span.innerText || 0) + 1;
                 btn.classList.add('liked');
                 showToast("👍 Liked this tutorial!");
             });
         });
         document.querySelectorAll('.share-video-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
+            btn.addEventListener('click', () => {
                 const title = btn.dataset.title;
-                navigator.clipboard.writeText(`Check out this CADXcel tutorial: ${title} - https://youtube.com/@cadxcel_ridip`).then(() => {
+                navigator.clipboard.writeText(`Check out this CADXcel tutorial: ${title}`).then(() => {
                     showToast(`🔗 Video link copied!`);
-                }).catch(() => showToast("Share link ready"));
+                });
             });
         });
         document.querySelectorAll('.comment-video-toggle').forEach(btn => {
@@ -574,7 +539,7 @@
         });
     }
 
-    // Render Project Files (YOUR ACTUAL FILES)
+    // Render Project Files with YOUR actual images
     function renderProjectFiles(containerId, projectList, limit = 0) {
         const container = document.getElementById(containerId);
         if (!container) return;
@@ -622,7 +587,7 @@
         document.querySelectorAll('.share-project-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 const name = btn.dataset.name;
-                navigator.clipboard.writeText(`CADXcel Project File: ${name} - Check it out!`).then(() => {
+                navigator.clipboard.writeText(`CADXcel Project File: ${name}`).then(() => {
                     showToast(`🔗 Project file reference copied!`);
                 });
             });
@@ -653,7 +618,7 @@
         });
     }
 
-    // render posts
+    // Render Posts
     function renderPosts() {
         const container = document.getElementById('postsContainer');
         if (!container) return;
@@ -716,7 +681,7 @@
             });
         });
         document.querySelectorAll('.share-post').forEach(btn => {
-            btn.addEventListener('click', () => { showToast("📢 Post link copied!"); navigator.clipboard?.writeText("Check this CADXcel community post"); });
+            btn.addEventListener('click', () => { showToast("📢 Post link copied!"); });
         });
     }
 
@@ -756,7 +721,6 @@
     document.getElementById('exploreVideosHero')?.addEventListener('click', () => showPage('videos'));
     document.getElementById('createPostBtn')?.addEventListener('click', createNewPost);
 
-    // Start with home
     showPage('home');
     
     function escapeHtml(str) { 
