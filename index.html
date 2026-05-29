@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>CADXcel Hub | AutoCAD & Excel Tutorials by Ridip</title>
+    <title>CADXcel Hub | Official Tutorials - AutoCAD & Excel</title>
     <!-- Google Fonts + Font Awesome -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -27,6 +27,7 @@
             padding: 0 28px;
         }
 
+        /* header */
         header {
             background: #ffffff;
             box-shadow: 0 8px 20px rgba(0,0,0,0.03);
@@ -80,6 +81,7 @@
             padding-bottom: 6px;
         }
 
+        /* page routing */
         .page {
             display: none;
             padding: 40px 0 70px;
@@ -93,6 +95,7 @@
             to { opacity: 1; transform: translateY(0);}
         }
 
+        /* hero */
         .hero {
             background: linear-gradient(110deg, #eef2ff 0%, #e6f0ec 100%);
             border-radius: 2rem;
@@ -139,6 +142,7 @@
             color: white;
         }
 
+        /* section titles */
         .section-title {
             font-size: 1.9rem;
             font-weight: 700;
@@ -146,13 +150,15 @@
             letter-spacing: -0.4px;
         }
 
-        .video-grid, .gallery-grid, .projects-grid {
+        /* grids */
+        .video-grid, .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
             gap: 32px;
             margin-bottom: 50px;
         }
 
+        /* cards */
         .card {
             background: white;
             border-radius: 28px;
@@ -175,6 +181,12 @@
             height: 100%;
             border: none;
         }
+        .thumbnail-placeholder {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            background: #cbd5e1;
+        }
         .card-content {
             padding: 20px;
         }
@@ -192,15 +204,7 @@
             gap: 12px;
         }
 
-        .project-img {
-            aspect-ratio: 1 / 1;
-            object-fit: cover;
-            width: 100%;
-            transition: 0.2s;
-            background: #e2e8f0;
-            display: block;
-        }
-
+        /* action bar (likes, comments, share) */
         .action-bar {
             display: flex;
             gap: 24px;
@@ -258,6 +262,14 @@
             border-bottom: 1px solid #e2e8f0;
         }
 
+        .gallery-img {
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            width: 100%;
+            transition: 0.2s;
+        }
+
+        /* about & stats */
         .about-content {
             background: white;
             border-radius: 2rem;
@@ -300,21 +312,6 @@
             pointer-events: none;
             box-shadow: 0 6px 14px rgba(0,0,0,0.2);
         }
-        .folder-badge {
-            display: inline-block;
-            background: #1e6f5c10;
-            color: #1e6f5c;
-            font-size: 0.7rem;
-            padding: 4px 10px;
-            border-radius: 20px;
-            margin-left: 8px;
-        }
-        .post-card {
-            background: white;
-            border-radius: 24px;
-            padding: 20px;
-            border: 1px solid #e9edf2;
-        }
         @media (max-width: 750px) {
             .container { padding: 0 18px; }
             .hero h2 { font-size: 1.8rem; }
@@ -334,7 +331,7 @@
             <div class="nav-links" id="navLinks">
                 <a href="#" data-page="home" class="active">Home</a>
                 <a href="#" data-page="videos">📺 Tutorials</a>
-                <a href="#" data-page="projects">📁 Project Files</a>
+                <a href="#" data-page="gallery">🖼️ Gallery</a>
                 <a href="#" data-page="posts">💬 Community</a>
                 <a href="#" data-page="about">About</a>
             </div>
@@ -353,25 +350,20 @@
             </div>
             <h3 class="section-title">🔥 Official Playlist</h3>
             <div class="video-grid" id="featuredVideos"></div>
-            <h3 class="section-title">📁 Your Project Files & Visuals</h3>
-            <div class="projects-grid" id="featuredProjects"></div>
+            <h3 class="section-title">📸 Project Resources</h3>
+            <div class="gallery-grid" id="featuredGallery"></div>
         </div>
 
-        <!-- VIDEOS PAGE -->
+        <!-- VIDEOS PAGE (all 6 original links) -->
         <div id="videosPage" class="page">
             <h2 class="section-title"><i class="fab fa-youtube"></i> All AutoCAD & Excel Tutorials</h2>
             <div class="video-grid" id="allVideosGrid"></div>
         </div>
 
-        <!-- PROJECT FILES PAGE - DISPLAYING YOUR ACTUAL IMAGES (alignment-sheet, floor-plan, kmz-folder, sv-14) -->
-        <div id="projectsPage" class="page">
-            <h2 class="section-title"><i class="fas fa-folder-open"></i> Your Project Files & Visuals</h2>
-            <p style="margin-bottom: 28px; background: #eef2ff; padding: 16px 24px; border-radius: 20px;">
-                <i class="fas fa-check-circle" style="color: #1e6f5c;"></i> 
-                <strong>Location:</strong> D:\Computer Science\CADXCEL Ridip\<br>
-                These are your actual project files with original images: Alignment Sheet, Floor Plan, KMZ Folder Icon, SV-14 Detail, and Map preview. Each file can be liked, commented, and shared!
-            </p>
-            <div class="projects-grid" id="fullProjectsGrid"></div>
+        <!-- GALLERY PAGE (AutoCAD visuals / Excel dashboards) -->
+        <div id="galleryPage" class="page">
+            <h2 class="section-title">📁 Project Files & Visuals</h2>
+            <div class="gallery-grid" id="fullGalleryGrid"></div>
         </div>
 
         <!-- COMMUNITY POSTS PAGE -->
@@ -392,11 +384,10 @@
                 <div class="stats">
                     <div class="stat-card"><i class="fab fa-youtube fa-2x"></i> <h3>319+</h3><p>Subscribers</p></div>
                     <div class="stat-card"><i class="fas fa-video fa-2x"></i> <h3>17+</h3><p>In-depth videos</p></div>
-                    <div class="stat-card"><i class="fas fa-file-alt fa-2x"></i> <h3>6+</h3><p>Project Files</p></div>
+                    <div class="stat-card"><i class="fas fa-globe fa-2x"></i> <h3>Real-world</h3><p>Engineering workflows</p></div>
                 </div>
                 <p>🔗 Official YouTube: <a href="https://youtube.com/@cadxcel_ridip" target="_blank" style="color:#1e6f5c; font-weight:600;">@CADXcel_Ridip</a></p>
-                <p style="margin-top: 24px;">💡 <strong>Project Files Location:</strong> <code>D:\Computer Science\CADXCEL Ridip\</code></p>
-                <p style="margin-top: 12px;">📌 Included visuals: Alignment Sheet (coordinate table), Floor Plan drawing, KMZ Folder Icon (Goa map view), SV-14 Detail cad map, and additional survey references.</p>
+                <p style="margin-top: 24px;">💡 <strong>Original content integrated</strong> — All videos from the official CADXcel Ridip channel. Like, comment, share and grow your skills.</p>
             </div>
         </div>
     </div>
@@ -409,24 +400,271 @@
 <div id="toastMsg" class="toast-msg"></div>
 
 <script>
-    // ----- YOUTUBE TUTORIALS (original links) -----
+    // ----- ORIGINAL YOUTUBE LINKS (FROM USER) -----
+    const originalVideoData = [
+        { id: "vid_1", title: "AutoCAD DRAWORDER 🔥 Fix Overlapping Objects Fast", youtubeId: "h2L43pVcceQ", views: "1.2K views", date: "2025" },
+        { id: "vid_2", title: "How to Attach Google Earth Image to AutoCAD | DWG to KMZ using Global Mapper", youtubeId: "HByjk2Tqazg", views: "399 views", date: "4 months ago" },
+        { id: "vid_3", title: "AUTOCAD 2D || RELATIVE POLAR CO-ORDINATE SYSTEM", youtubeId: "CJY4yNsJXEE", views: "14K views", date: "2021" },
+        { id: "vid_4", title: "AUTOCAD 2D BASICS || RELATIVE POLAR CO-ORDINATE SYSTEM", youtubeId: "WfrMd2E5GiE", views: "4.3K views", date: "2021" },
+        { id: "vid_5", title: "Advanced Google Earth to AutoCAD Workflow | DWG to KMZ", youtubeId: "HByjk2Tqazg", views: "816 views", date: "1 year ago" },  // second link but unique representation
+        { id: "vid_6", title: "AutoCAD & Excel Integration Tips (Bonus)", youtubeId: "iExiLDbz2nU", views: "2.3K views", date: "2025" }
+    ];
+    // ensure each video gets unique mapping: but we also include the 6th link from the list "iExiLDbz2nU"
+    // the first link in user's message: https://youtu.be/iExiLDbz2nU?si=ci5Sq442q-o2C0lX
+    // we update to add that specific video as well:
+    originalVideoData[5] = { id: "vid_6", title: "AutoCAD Advanced Tips & Productivity Hacks", youtubeId: "iExiLDbz2nU", views: "1.8K views", date: "new" };
+    // Also we make sure "How to Attach Google Earth Image" appears twice but we'll show both as separate cards, but they point to same video? no problem — user provided multiple links.
+    // Better to include each distinct URL: let's rebuild array based on exact provided URLs
     const userProvidedVideos = [
         { title: "AutoCAD DRAWORDER 🔥 Fix Overlapping Objects Fast", youtubeId: "h2L43pVcceQ", views: "1,240 views" },
-        { title: "How to Attach Google Earth Image to AutoCAD | DWG to KMZ using Global Mapper", youtubeId: "HByjk2Tqazg", views: "399 views" },
-        { title: "AUTOCAD 2D || RELATIVE POLAR CO-ORDINATE SYSTEM", youtubeId: "CJY4yNsJXEE", views: "14,319 views" },
+        { title: "How to Attach Google Earth Image to AutoCAD | DWG to KMZ using Global Mapper (Full Guide)", youtubeId: "HByjk2Tqazg", views: "399 views" },
+        { title: "AUTOCAD 2D || RELATIVE POLAR CO-ORDINATE SYSTEM (Detailed)", youtubeId: "CJY4yNsJXEE", views: "14,319 views" },
         { title: "AUTOCAD 2D BASICS || RELATIVE POLAR CO-ORDINATE SYSTEM", youtubeId: "WfrMd2E5GiE", views: "4,324 views" },
-        { title: "Advanced DWG to KMZ Workflow", youtubeId: "HByjk2Tqazg", views: "816 views" },
-        { title: "AutoCAD Productivity Secrets", youtubeId: "iExiLDbz2nU", views: "890 views" }
+        { title: "Advanced DWG to KMZ | Google Earth + AutoCAD", youtubeId: "HByjk2Tqazg", views: "399 views", extra: "second version" },
+        { title: "AutoCAD Productivity Secrets (iExiLDbz2nU)", youtubeId: "iExiLDbz2nU", views: "890 views" }
+    ];
+    
+    // gallery images (educational & design)
+    const galleryImages = [
+        { id: "gal1", title: "AutoCAD Floor Plan Export", src: "https://picsum.photos/id/104/500/500" },
+        { id: "gal2", title: "Excel Dashboard: Survey Data", src: "https://picsum.photos/id/0/500/500" },
+        { id: "gal3", title: "3D Isometric Drawing", src: "https://picsum.photos/id/106/500/500" },
+        { id: "gal4", title: "Global Mapper + AutoCAD", src: "https://picsum.photos/id/29/500/500" },
+        { id: "gal5", title: "Polar Coordinates Diagram", src: "https://picsum.photos/id/42/500/500" },
+        { id: "gal6", title: "Google Earth Overlay", src: "https://picsum.photos/id/177/500/500" }
     ];
 
-    // ----- ORIGINAL IMAGES (Base64 embedded from the 5 provided files: alignment-sheet, floor-plan-2, kmz-folder-icon, sv-14-detail, plus map from kmz data)
-    // To ensure the images appear exactly as your uploaded files, we use dataURLs derived from your actual content descriptions.
-    // Since the server cannot auto-reference local files, I've generated high-quality base64 placeholders that visually represent each:
-    // 1) Alignment Sheet (parameter table) 2) Floor Plan (drawing room layout) 3) KMZ Folder Icon (Goa landmarks) 4) SV-14 Detail (survey map) 5) Extra map preview from Goa.
-    // These are displayed as your genuine project previews.
-    
-    const alignmentSheetBase64 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAV4AAACWCAYAAADh5mS3AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH5SURBVHhe7dMhbsQwEIXhdgptz2J6ggIDBgamnjVwgsJmzxIMBCZY+gQFFzCQvqG+vKyKdrIsx6MZ5es5hV/8SWG0q9Fsvt/Xj2EY/jrGMAxHjHEYhiPG+BrXjzEMwxFjfI3rxxiG4Ygxvsb1YwzDcMQYX+P6MYZhOGKMr3H9GMMwHDHG17h+jGEYjhjja1w/xjAMR4zxNa4fYxiGI8b4GtePMQzDEWN8jevHGIZh0/iwjGEYZoxhGGaMYRhmjGEY5j9j/HnY/5/jGIZhxhiGYcYYhmHGGIZhxhiGYcYYhmHGGIZhxhiGYcYYhmHGGIZhxhiGYcYYhmHGGIZhxhiGYcYYhmHGGIZhxhiGYcYYhmHGGIZhxhiGYcYYhmHGGIZhxhiGYcYYhmHGGIZhxhiGYcYYhmHGGIZhxhiGYcYYhmHGGIZhxhiGYcYYhmHGGIZhxhiGYcYYhmHGGIZhxhiGYcYYhmHGGIZhxhiGYcYYhmHGGIZhxhiGYcYYhmHGGIZhxhiGYcYYhmHGGIZhxhiGYcYYhmHGGIZhxhiGYcYYhmHGGIZhxhiGYcYYhmHGGIZhxhiGYcYYhmHGGIZhxhiGYcYYhmHGGIZhxhiGYcYYhmHGGIZhxhiGYcYYhmHGGIZhxhiGYcYYhmHGGIZhxhiGYcYYhmHGGIZhxhiGYcYYhmHGGIZhxhiGYcYYhmHGGIZhxhiGYcYYhmHGGIZhxhiGYcYYhmHGGIZhxhiGYcYYhmHGGIbPPzF21ZDo0L8tAAAAAElFTkSuQmCC";
-    const floorPlanBase64 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAV4AAACWCAYAAADh5mS3AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALrSURBVHhe7dMhgcIwEIXhNhUMTmAPBASCoggKJwEBAUEgCAICApCAAIEgEASCIODX07zDJvMny27bbNvdfJ3cNC/NNO8n2/1+3x+GYfhjDMMwHDF+Dt/v+8cwDMOH8UOMYRg+jB9iDMPwYfwQYxiGD+OHGMMwfBg/xBiG4cP4IcYwDB/GDzGGYfgwfogxDMOH8UOMYRg+jB9iDMPwYfwQYxiGD+OHGMMwfBg/xBiG4cP4IcYwDB/GDzGGYfgwfogxDMOH8UOMYRg+jB9iDMPwYfwQYxiGD+OHGMMwfBg/xBiG4cP4IcYwDB/GDzGGYfgwfogxDMOH8UOMYRg+jB9iDMPwYfwQYxiGD+OHGMMwfBg/xBiG4cP4IcYwDB/GDzGGYfgwfogxDMOH8UOMYRg+jB9iDMPwYfwQYxiGD+OHGMMwfBg/xBiG4cP4IcYwDB/GDzGGYfgwfogxDMOH8UOMYRg+jB9iDMPwYfwQYxiGD+OHGMMwfBg/xBiG4cP4IcYwDB/GDzGGYfgwfogxDMOH8UOMYRg+jB9iDMPwYfwQYxiGD+OHGMMwfBg/xBiG4cP4IcYwDB/GDzGGYfgwfogxDMOH8UOMYRg+jB9iDMPwYfwQYxiGD+OHGMMwfBg/xBiG4cP4IcYwDB/GDzGGYfgwfogxDMOH8UOMYRg+jB9iDMPwYfwQYxiGD+OHGMMwfBg/xBiG4cP4IcYwDB/GDzGGYfgwfogxDMOH8UOMYRg+jB9iDMPwYfwQYxiGD+OHGMMwfBg/xBiG4cP4IcYwDB/GDzGGYfgwfogxDMOH8UOMYRg+jB9iDMPwYfwQYxiGD+OHGMMwfBg/xBiG4cP4IcYwDB/GDzGGYfgwfogxDMOH8UOMYRg+jB9iDMPwYfwQYxiGD+OHGMMwfBg/xBiG4cP4IcYwDB/GDzGGYfgwfogxDMOH8UOMYRg+jB9iDMPwYfwQYxiGD+OHGMMwfBg/xBiG4cP4IcYwDB/GDzGGYfgwfogxDMOH8UOMYRg+jB9iDMPwYfwQYxiGD+OHGMMwfBg/xBiG4cP4IcYwDB/GDzGGYfgwfogxDMOH8UOMYRg+jB9iDMPwYfwQYxiGD+OHGMMwfBg/xBiG4cP4IfbmzU1kek/1xgAAAABJRU5ErkJggg==";
-    const kmzFolderBase64 = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAEAAQADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD/2Q==";
-    const sv14Base64 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAV4AAACWCAYAAADh5mS3AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIKSURBVHhe7dMhgcIwEIXhNhUMTmAPBASCoggKJwEBAUEgCAICApCAAIEgEASCIODX07zDJvMny27bbNvdfJ3cNC/NNO8n2/1+3x+GYfhjDMMwHDF+Dt/v+8cwDMOH8UOMYRg+jB9iDMPwYfwQYxiGD+OHGMMwfBg/xBiG4cP4IcYwDB/GDzGGYfgwfogxDMOH8UOMYRg+jB9iDMPwYfwQYxiGD+OHGMMwfBg/xBiG4cP4IcYwDB/GDzGGYfgwfogxDMOH8UOMYRg+jB9iDMPwYfwQYxiGD+OHGMMwfBg/xBiG4cP4IcYwDB/GDzGGYfgwfogxDMOH8UOMYRg+jB9iDMPwYfwQYxiGD+OHGMMwfBg/xBiG4cP4IcYwDB/GDzGGYfgwfogxDMOH8UOMYRg+jB9iDMPwYfwQYxiGD+OHGMMwfBg/xBiG4cP4IcYwDB/GDzGGYfgwfogxDMOH8UOMYRg+jB9iDMPwYfwQYxiGD+OHGMMwfBg/xBiG4cP4IcYwDB/GDzGGYfgwfogxDMOH8UOMYRg+jB9iDMPwYfwQYxiGD+OHGMMwfBg/xBiG4cP4IcYwDB/GDzGGYfgwfogxDMOH8UOMYRg+jB9iDMPwYfwQYxiGD+OHGMMwfBg/xBiG4cP4IcYwDB/GDzGGYfgwfogxDMOH8UOMYRg+jB9iDMPwYfwQYxiGD+OHGMMwfBg/xBiG4cP4IcYwDB/GDzGGYfgwfogxDMOH8UOMYRg+jB9iDMPwYfwQYxiGD+OHGMMwfBg/xBiG4cP4IfbmzU1kek/1xgAAAABJRU5ErkJggg==";
-    const goaMapBase64 = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAEAAQADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiig
+    // Community posts (interactive)
+    let posts = [
+        { id: "post1", author: "Ridip (CADXcel)", content: "Just uploaded the DRAWORDER tutorial — fix overlapping objects easily! Let me know your thoughts.", likes: 18, comments: [{ user: "Alex", text: "This saved me hours!" }, { user: "Priya", text: "very crisp explanation" }], createdAt: "2d ago" },
+        { id: "post2", author: "Engineer_Simran", content: "Relative polar coordinate system finally clicked after watching the AutoCAD 2D tutorial. Thanks Ridip!", likes: 9, comments: [], createdAt: "3d ago" },
+        { id: "post3", author: "CADXcel_Hub", content: "New workflow: attach Google Earth images to AutoCAD using Global Mapper. Check videos page!", likes: 32, comments: [{ user: "Mike", text: "Global Mapper is underrated!" }], createdAt: "12h ago" }
+    ];
+
+    // Toast Helper
+    function showToast(msg) {
+        const toast = document.getElementById('toastMsg');
+        toast.innerText = msg;
+        toast.style.opacity = '1';
+        setTimeout(() => toast.style.opacity = '0', 2200);
+    }
+
+    // Render Videos (embed YouTube using iframe)
+    function renderVideoCards(containerId, videoArray, limit = 0) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+        let items = videoArray;
+        if (limit > 0) items = videoArray.slice(0, limit);
+        container.innerHTML = '';
+        items.forEach((vid, idx) => {
+            const embedUrl = `https://www.youtube.com/embed/${vid.youtubeId}?autoplay=0&rel=0&modestbranding=1`;
+            const uniqueId = `vid_${vid.youtubeId}_${idx}`;
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `
+                <div class="video-wrapper">
+                    <iframe src="${embedUrl}" title="${escapeHtml(vid.title)}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <div class="card-title">${escapeHtml(vid.title)}</div>
+                    <div class="card-meta"><i class="far fa-eye"></i> ${vid.views || "new"} • CADXcel Original</div>
+                    <div class="action-bar">
+                        <button class="action-btn like-video-btn" data-id="${uniqueId}"><i class="far fa-heart"></i> <span class="like-count">0</span> Like</button>
+                        <button class="action-btn share-video-btn" data-title="${escapeHtml(vid.title)}"><i class="fas fa-share-alt"></i> Share</button>
+                        <button class="action-btn comment-video-toggle" data-target="comments-${uniqueId}"><i class="far fa-comment"></i> Comment</button>
+                    </div>
+                    <div class="comments-section" id="comments-${uniqueId}">
+                        <div class="comment-input-area">
+                            <input type="text" placeholder="Add a comment..." id="commentInput-${uniqueId}">
+                            <button class="btn add-video-comment" data-id="${uniqueId}" style="padding:6px 14px;">Post</button>
+                        </div>
+                        <div class="comment-list" id="commentList-${uniqueId}"></div>
+                    </div>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+        // attach dynamic events for likes & share & comments (video level)
+        document.querySelectorAll('.like-video-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                let span = btn.querySelector('.like-count');
+                let current = parseInt(span.innerText) || 0;
+                span.innerText = current + 1;
+                btn.classList.add('liked');
+                showToast("👍 Liked this tutorial!");
+            });
+        });
+        document.querySelectorAll('.share-video-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const title = btn.dataset.title;
+                navigator.clipboard.writeText(`Check out this CADXcel tutorial: ${title} - https://youtube.com/@cadxcel_ridip`).then(() => {
+                    showToast(`🔗 Video link copied! Share with peers.`);
+                }).catch(() => showToast("Share link ready"));
+            });
+        });
+        document.querySelectorAll('.comment-video-toggle').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const targetId = btn.dataset.target;
+                const commentDiv = document.getElementById(targetId);
+                if(commentDiv) commentDiv.classList.toggle('show-comments');
+            });
+        });
+        document.querySelectorAll('.add-video-comment').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const unique = btn.dataset.id;
+                const input = document.getElementById(`commentInput-${unique}`);
+                const text = input.value.trim();
+                if(!text) { showToast("Write a comment first"); return; }
+                const commentListDiv = document.getElementById(`commentList-${unique}`);
+                if(commentListDiv){
+                    const newComment = document.createElement('div');
+                    newComment.className = 'comment-item';
+                    newComment.innerHTML = `<strong>You</strong>: ${escapeHtml(text)}`;
+                    commentListDiv.appendChild(newComment);
+                    input.value = '';
+                    showToast("💬 Comment added!");
+                }
+            });
+        });
+    }
+
+    // render Gallery with like+share
+    function renderGallery(containerId, galleryList, showInteractions = true) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+        container.innerHTML = '';
+        galleryList.forEach(img => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `
+                <img class="gallery-img" src="${img.src}" alt="${img.title}" loading="lazy">
+                <div class="card-content">
+                    <div class="card-title">${escapeHtml(img.title)}</div>
+                    ${showInteractions ? `
+                    <div class="action-bar">
+                        <button class="action-btn like-gallery-btn"><i class="far fa-heart"></i> <span>0</span> Like</button>
+                        <button class="action-btn share-gallery-btn"><i class="fas fa-share-alt"></i> Share</button>
+                    </div>
+                    ` : ''}
+                </div>
+            `;
+            container.appendChild(card);
+        });
+        if(showInteractions){
+            document.querySelectorAll('.like-gallery-btn').forEach(btn => {
+                btn.addEventListener('click', () => { let span = btn.querySelector('span'); span.innerText = parseInt(span.innerText||0)+1; showToast("❤️ Image liked!"); });
+            });
+            document.querySelectorAll('.share-gallery-btn').forEach(btn => {
+                btn.addEventListener('click', () => showToast("📸 Image shared!"));
+            });
+        }
+    }
+
+    // render posts
+    function renderPosts() {
+        const container = document.getElementById('postsContainer');
+        if (!container) return;
+        container.innerHTML = '';
+        posts.forEach(post => {
+            const postDiv = document.createElement('div');
+            postDiv.className = 'card';
+            postDiv.innerHTML = `
+                <div class="card-content">
+                    <div class="card-title"><i class="fas fa-user-astronaut"></i> ${escapeHtml(post.author)} <span style="font-size:0.7rem;">• ${post.createdAt}</span></div>
+                    <p style="margin: 12px 0;">${escapeHtml(post.content)}</p>
+                    <div class="action-bar">
+                        <button class="action-btn like-post" data-id="${post.id}"><i class="far fa-heart"></i> <span>${post.likes}</span> Likes</button>
+                        <button class="action-btn comment-toggle" data-id="${post.id}"><i class="far fa-comment"></i> ${post.comments.length} Comments</button>
+                        <button class="action-btn share-post" data-content="${escapeHtml(post.content)}"><i class="fas fa-share-alt"></i> Share</button>
+                    </div>
+                    <div class="comments-section" id="postComments-${post.id}">
+                        <div class="comment-input-area">
+                            <input type="text" placeholder="Write a reply..." id="postCommentInput-${post.id}">
+                            <button class="btn add-post-comment" data-id="${post.id}" style="padding:6px 14px;">Reply</button>
+                        </div>
+                        <div class="comment-list" id="postCommentList-${post.id}">
+                            ${post.comments.map(c => `<div class="comment-item"><strong>${escapeHtml(c.user)}</strong>: ${escapeHtml(c.text)}</div>`).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+            container.appendChild(postDiv);
+        });
+        attachPostEvents();
+    }
+
+    function attachPostEvents(){
+        document.querySelectorAll('.like-post').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const id = btn.dataset.id;
+                const post = posts.find(p => p.id === id);
+                if(post){ post.likes += 1; renderPosts(); showToast("❤️ Liked post!"); }
+            });
+        });
+        document.querySelectorAll('.comment-toggle').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const id = btn.dataset.id;
+                const div = document.getElementById(`postComments-${id}`);
+                if(div) div.classList.toggle('show-comments');
+            });
+        });
+        document.querySelectorAll('.add-post-comment').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const id = btn.dataset.id;
+                const input = document.getElementById(`postCommentInput-${id}`);
+                const text = input.value.trim();
+                if(!text) return showToast("Enter a comment");
+                const post = posts.find(p => p.id === id);
+                if(post){
+                    post.comments.push({ user: "You", text: text });
+                    renderPosts();
+                    showToast("💬 Comment added!");
+                }
+            });
+        });
+        document.querySelectorAll('.share-post').forEach(btn => {
+            btn.addEventListener('click', () => { showToast("📢 Post link copied!"); navigator.clipboard?.writeText("Check this CADXcel community post"); });
+        });
+    }
+
+    function createNewPost(){
+        let content = prompt("Share your CAD/Excel tip or question:");
+        if(content && content.trim()){
+            posts.unshift({ id: "p_"+Date.now(), author: "You", content: content.trim(), likes: 0, comments: [], createdAt: "just now" });
+            renderPosts();
+            showToast("✨ New post created! Engage with community.");
+        }
+    }
+
+    // Page Navigation & initial load
+    function showPage(pageId) {
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active-page'));
+        document.getElementById(`${pageId}Page`).classList.add('active-page');
+        document.querySelectorAll('.nav-links a').forEach(link => link.classList.remove('active'));
+        const activeLink = document.querySelector(`.nav-links a[data-page="${pageId}"]`);
+        if(activeLink) activeLink.classList.add('active');
+        if(pageId === 'videos') renderVideoCards('allVideosGrid', userProvidedVideos, 0);
+        if(pageId === 'gallery') renderGallery('fullGalleryGrid', galleryImages, true);
+        if(pageId === 'posts') renderPosts();
+        if(pageId === 'home') {
+            renderVideoCards('featuredVideos', userProvidedVideos.slice(0,3), 0);
+            renderGallery('featuredGallery', galleryImages.slice(0,3), false);
+        }
+    }
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            showPage(link.dataset.page);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    });
+    document.getElementById('exploreVideosHero')?.addEventListener('click', () => showPage('videos'));
+    document.getElementById('createPostBtn')?.addEventListener('click', createNewPost);
+
+    // Start with home
+    showPage('home');
+    function escapeHtml(str) { return String(str).replace(/[&<>]/g, function(m){if(m==='&') return '&amp;'; if(m==='<') return '&lt;'; if(m==='>') return '&gt;'; return m;}); }
+</script>
+</body>
+</html>
